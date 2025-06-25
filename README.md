@@ -6,10 +6,10 @@ Local Scan — Gathers system information about the machine where it's executed.
 
 Remote (Global) Scan — Connects to a background server running on a target machine (once auto-installed) and retrieves system data from it, potentially useful for vulnerability assessments.
 
-⚠️ Disclaimer: This project mimics behavior similar to malware (auto-installation, persistence, remote control) for educational purposes only. Unauthorized deployment on machines without consent is illegal and unethical.
+Disclaimer: This project mimics behavior similar to malware (auto-installation, persistence, remote control) for educational purposes only. Unauthorized deployment on machines without consent is unethical.
 
 Features
-🖥️ Local Scan (Client-side GUI)
+LOCAL SCAN (Client-side GUI)
 Fetches system information such as:
 
 OS details
@@ -22,7 +22,7 @@ Battery status
 
 Peripheral devices (USBs, disks)
 
-🌐 Global Scan (Remote via IP)
+Distance Scan (Remote via IP)
 Connects to a remote host where a stealth background server is running and retrieves:
 
 CPU and OS info
@@ -61,3 +61,39 @@ macOS: Installs a launchd agent
 Handles requests such as CPU_INFO, MEM_INFO, Devices, etc.
 
 Returns data in compressed or JSON format to save bandwidth and reduce detection.
+
+AS FOR Dependencies: 
+  pip install psutil cpuinfo python-nmap pywin32
+
+follow error messages in-case of forgotten installations
+
+ON YOUR MACHINE (Operator/Client Side)
+bash
+Copy
+Edit
+python C.py
+Run with administrator privileges.
+
+Use the GUI to select local or global scan options.
+
+ON TARGET MACHINE (Victim/Remote)
+bash
+Copy
+Edit
+python S.py
+On first execution, it:
+
+Sets itself to auto-launch on every boot.
+
+Starts a background TCP server on port 12345.
+
+This mimics the behavior of a remote agent/implant.
+
+LIMITATIONS :
+
+*  Only basic recon information, no exploitation modules.
+
+*  Windows-only WMI code may fail on Linux/macOS if not checked.
+
+*  No encryption/authentication in communication (security risk).
+
