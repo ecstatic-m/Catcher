@@ -37,7 +37,8 @@ USB/Peripheral devices
 
 All data is displayed in a Tkinter-based GUI for the operator.
 
-How It Works
+HOW IT WORKS :
+
 1. C.py (Client/Controller)
 Provides a graphical interface using tkinter.
 
